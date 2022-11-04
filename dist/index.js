@@ -7084,16 +7084,6 @@ function getInput(name, options) {
     return val.trim();
 }
 exports.getInput = getInput;
-/**
- * Sets the value of an output.
- *
- * @param     name     name of the output to set
- * @param     value    value to store
- */
-function setOutput(name, value) {
-    command_1.issueCommand('set-output', { name }, value);
-}
-exports.setOutput = setOutput;
 //-----------------------------------------------------------------------
 // Results
 //-----------------------------------------------------------------------
@@ -8832,11 +8822,6 @@ async function run() {
     const {
       data: { id: releaseId, html_url: htmlUrl, upload_url: uploadUrl }
     } = createReleaseResponse;
-
-    // // Set the output variables for use by other actions: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
-    // core.setOutput('id', releaseId);
-    // core.setOutput('html_url', htmlUrl);
-    // core.setOutput('upload_url', uploadUrl);
   } catch (error) {
     core.setFailed(error.message);
   }
